@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:contex="http://www.srpingframework.org/schema/context"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+	
+	<bean id="beanCliente" class="com.distribuida.entities.Cliente"></bean>
+	
+	<bean id="beanDatosEmpresa" class="com.distribuida.principal.DatosEmpresa">
+		<property name="empresa" value="Empresa ABC S.A."></property>						
+		<property name="direccion" value="Av. Por ahi y mas allá."></property>
+		<property name="telefono" value="+593987654321 / 022-345-678"></property>
+		<property name="correo" value="contactoabc@correo.com"></property>
+	</bean>
+	
+	<bean id="beanProducto" class="com.distribuida.entities.Producto"></bean>
+	<bean id="beanProducto2" class="com.distribuida.entities.Producto"></bean>
+	<bean id="beanProducto3" class="com.distribuida.entities.Producto"></bean>
+	
+	<bean id="beanFactura" class="com.distribuida.entities.Factura">
+		<constructor-arg ref="beanCliente"></constructor-arg>
+		<property name="datosEmpresa" ref="beanDatosEmpresa"></property>
+	</bean>
+	
+	<bean id="beanDetalleFactura" class="com.distribuida.entities.DetalleFactura">
+		<property name="producto" ref="beanProducto"></property>
+	</bean>
+	
+	<bean id="beanDetalleFactura2" class="com.distribuida.entities.DetalleFactura">
+		<property name="producto" ref="beanProducto2"></property>
+	</bean>
+	
+	<bean id="beanDetalleFactura3" class="com.distribuida.entities.DetalleFactura">
+		<property name="producto" ref="beanProducto3"></property>
+	</bean>
+	
+
+
+	
+</beans>
+		
